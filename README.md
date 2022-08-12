@@ -7,9 +7,46 @@ monorepo 是把多个项目的所有代码放到一个 git 仓库中进行管理
 
 使用 monorepo 可以把原本一个项目的多个模块拆分成多个 packages，在 packages 之间相互引用，也可以单独发布成包，极大地解决了项目之间代码无法重用的痛点。在项目打包或者编译操作时也可重用一套配置，通吃所有 packages。
 
-
+初始化项目生成一个 package.json
 
 ```
 pnpm init
 ```
+
+管理多个项目
+
+pnpm 提供的一个功能，可以管理多个项目，那么怎么管理多个项目呢？你需要创建一个配置文件
+
+pnpm-workspace.yaml
+
+在这个配置文件中要告诉 pnpm 项目写在哪个项目下
+
+```json
+packages:
+  - 'packages/*'
+```
+
+
+
+```
+pnpm install vue -w
+```
+
+
+
+符号链接
+
+
+
+npm 的特点：幽灵依赖
+
+
+
+```
+pnpm install esbuild typescript minimist -D -w
+```
+
+
+
+
 
