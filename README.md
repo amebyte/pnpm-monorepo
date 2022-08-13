@@ -75,6 +75,6 @@ pnpm tsc -init
 }
 ```
 
-
+minimist 可以解析命令行参数，非常好用，功能简单不复杂
 
 
