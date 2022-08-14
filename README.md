@@ -68,6 +68,24 @@ Vue3 的源码开发环境采用的是 `esbuild` 进行编译打包，特点就�
 
 
 
+在 reactivity 模块怎么引用 shared 模块的东西呢？
+
+比如说我们平时可能这样引用一个项目中的其他目录的方法或者变量。
+
+```javascript
+import { isObject } from "../../shared/src";
+```
+
+但现在我们这些目录都是独立的每个包，都可以独立发布的，如果还是通过上面这种方式进行引用的话，会把两个包都打包在一起了。
+
+那么我们一般通过下面这种别名方式进行引用。
+
+```javascript
+import { isObject } from "@vue/shared";
+```
+
+
+
 初始化一个 TypeScript 的配置文件
 
 ```
