@@ -84,14 +84,12 @@ import { isObject } from "../../shared/src";
 import { isObject } from "@vue/shared";
 ```
 
-
-
 初始化一个 TypeScript 的配置文件
 
 ```
 pnpm tsc -init
 ```
-
+进行别名配置，告诉 TypeScript 别名要去哪个目录进行查找。
 
 ```json
 {
@@ -106,13 +104,15 @@ pnpm tsc -init
         "esModuleInterop": true, // 允许通过 es6 语法引入common.js模块
         "jsx": "preserve", // jsx 不转义
         "lib": ["esnext", "dom"], // 支持的类库 esnext 及 dom
-        "baseUrl": ".",
+        "baseUrl": ".", // 以当前目录作为别名目录作为入口
         "paths": {
             "@vue/*":["packages/*/src"]
         }
     }
 }
 ```
+
+通过上述设置，就可以通过 TypeScript 的别名实现了不同包直接的互相引用。
 
 minimist 可以解析命令行参数，非常好用，功能简单不复杂
 
