@@ -41,11 +41,13 @@ npm 的特点：幽灵依赖
 
 
 
+Vue3 源码的开发环境
+
 ```
 pnpm install esbuild typescript minimist -D -w
 ```
 
-
+Vue3 的源码开发环境采用的是 `esbuild` 进行编译打包，特点就是编译速度快，所以采用 `esbuild` 进行编译开发速度也变得很快。同理我们使用的 Vite 开发效率高是因为它采用 ESModule，开发的时候，不打包，内部编译的时候也是通过 `esbuild` 进行编译。最终上生产的时候，还是通过 rollup 进行打包，跟 Vite 一样。Vue3 源码是使用 TypeScript 开发的，所以需要安装 `typescript`。
 
 初始化一个 TypeScript 的配置文件
 
