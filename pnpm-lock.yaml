@@ -13,7 +13,10 @@ importers:
       typescript: registry.npmmirror.com/typescript/4.7.4
 
   packages/reactivity:
-    specifiers: {}
+    specifiers:
+      '@vue/shared': workspace:^0.0.1
+    dependencies:
+      '@vue/shared': link:../shared
 
   packages/shared:
     specifiers: {}

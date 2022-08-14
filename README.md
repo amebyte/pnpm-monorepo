@@ -114,6 +114,18 @@ pnpm tsc -init
 
 通过上述设置，就可以通过 TypeScript 的别名实现了不同包直接的互相引用。
 
+安装之后就不需要了，通过下面命令进行安装本地包。
+
+```
+pnpm install @vue/shared@workspace --filter @vue/reactivity
+```
+
+
+
+打包配置
+
+
+
 minimist 可以解析命令行参数，非常好用，功能简单不复杂
 
 
