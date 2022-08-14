@@ -47,7 +47,26 @@ Vue3 源码的开发环境
 pnpm install esbuild typescript minimist -D -w
 ```
 
-Vue3 的源码开发环境采用的是 `esbuild` 进行编译打包，特点就是编译速度快，所以采用 `esbuild` 进行编译开发速度也变得很快。同理我们使用的 Vite 开发效率高是因为它采用 ESModule，开发的时候，不打包，内部编译的时候也是通过 `esbuild` 进行编译。最终上生产的时候，还是通过 rollup 进行打包，跟 Vite 一样。Vue3 源码是使用 TypeScript 开发的，所以需要安装 `typescript`。
+Vue3 的源码开发环境采用的是 `esbuild` 进行编译打包，特点就是编译速度快，所以采用 `esbuild` 进行编译开发速度也变得很快。跟 Vite 一样，我们使用的 Vite 开发效率高是因为它采用 ESModule，开发的时候，不打包，内部编译的时候也是通过 `esbuild` 进行编译。最终上生产的时候，还是通过 rollup 进行打包，跟 Vite 一样。Vue3 源码是使用 TypeScript 开发的，所以需要安装 `typescript`。通常我们需要在命令行了进行一些参数输入，所以需要进行命令行参数解析，`minimist` 则可以实现对命令行的参数进行解析。因为我们是在开发阶段使用的，所以安装的时候使用 `-D`，又因为这些包是所有模块的公共使用的，所以需要安装到根目录，所以添加 `-w`。
+
+模块中的 package.json 配置
+
+```json
+{
+    "name": "@vue/shared",
+    "version": "0.0.1",
+    "main": "dist/shared.cjs.js", // node.js 环境引用的
+    "module": "dist/shared.esm-bundler.js", // 浏览器 ESM 模式引用的
+    "buildOptions": {
+        "formats": [
+            "esm-bundler",
+            "cjs"
+        ]
+    }
+}
+```
+
+
 
 初始化一个 TypeScript 的配置文件
 
