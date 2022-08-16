@@ -131,3 +131,9 @@ pnpm install @vue/shared@workspace --filter @vue/reactivity
 minimist 可以解析命令行参数，非常好用，功能简单不复杂
 
 
+使用 monorepo 环境的好处就是可以在一个项目中管理多个仓库，可以达到仓库之间的资源共享。
+
+先使用 pnpm init 进行 package.json 的初始化。
+```
+pnpm init
+```
